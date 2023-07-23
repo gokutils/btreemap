@@ -15,6 +15,7 @@ import "github.com/gokutils/btreemap"
   - [func \(impl \*Map\[K, V\]\) Delete\(key K\) \(V, bool\)](<#Map[K, V].Delete>)
   - [func \(impl \*Map\[K, V\]\) ForEach\(iterator func\(key K, value V\) bool\)](<#Map[K, V].ForEach>)
   - [func \(impl \*Map\[K, V\]\) Get\(key K\) \(V, bool\)](<#Map[K, V].Get>)
+  - [func \(impl \*Map\[K, V\]\) Len\(\) int](<#Map[K, V].Len>)
   - [func \(impl \*Map\[K, V\]\) Set\(key K, value V\) \(V, bool\)](<#Map[K, V].Set>)
 
 
@@ -74,7 +75,7 @@ Delete removes an item equal to the passed in item from the tree, returning it. 
 func (impl *Map[K, V]) ForEach(iterator func(key K, value V) bool)
 ```
 
-ForEach Permet d'iterer sur tout les clee
+ForEach calls the iterator for every value in the tree within the range \[first, last\], until iterator returns false
 
 <a name="Map[K, V].Get"></a>
 ### func \(\*Map\[K, V\]\) Get
@@ -84,6 +85,15 @@ func (impl *Map[K, V]) Get(key K) (V, bool)
 ```
 
 Get looks for the key item in the tree, returning it. It returns \(zeroValue, false\) if unable to find that item.
+
+<a name="Map[K, V].Len"></a>
+### func \(\*Map\[K, V\]\) Len
+
+```go
+func (impl *Map[K, V]) Len() int
+```
+
+Len returns the number of items currently in the tree
 
 <a name="Map[K, V].Set"></a>
 ### func \(\*Map\[K, V\]\) Set
